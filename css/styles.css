@@ -3,21 +3,6 @@
  *
  *  [Main Stylesheet]
  *
- *	Project:		Bright - HTML Startup Landing Page
- *	Version:		1.0
- *	Last change:	04/10/2016
- *	Primary use:	Mobile App, Landing Page, Creative, Coporate, Business
- *	File Name: 		styles.css
- *	Author: 		Morad
- *	Description: This file is containing almost the all basic settings of the template except
- *				 for bootstrap, fontAwesome and owlCarousel. Both of them has its separated file.
- *				 This file is separated to detailed section tobe easy to be handled in
- *				  a quick way.
- *				  
- *				 The file is divided as listed below.
- *
- *	=================================================================================================
- *
  *	styles.css file is divided as the following:
  *
  *	( 01 ) - General Basics
@@ -29,9 +14,6 @@
  *	( 07 ) - Footer
  *
  */
-
-
-
 /**
  *	-------------------------------------------------------------------------------
  *	( 01 ) - General Basics
@@ -3667,6 +3649,7 @@ footer {
 .copyrights-message a:hover {
 	color: #0556dd;
 }
+
 
 
 
