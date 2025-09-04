@@ -912,7 +912,7 @@ header .button {
  */
 
 .header-top-content {
-	height: 90px;
+	height: 96px;
 	width: 100%;
 	position: absolute;
 	z-index: 2;
@@ -937,7 +937,7 @@ header .button {
 
 .logo img {
 	max-height: 96px;
-	margin-top: 96px;
+	margin-top: 10px;
 }
 
 .logo h3 {
@@ -3649,6 +3649,7 @@ footer {
 .copyrights-message a:hover {
 	color: #0556dd;
 }
+
 
 
 
