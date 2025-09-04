@@ -1,0 +1,88 @@
+backend:
+  name: github
+  repo: wcutrerjr/wcutrerjr.github.io
+  branch: main
+  # When you set up a GitHub OAuth bridge, uncomment:
+  # base_url: https://YOUR-OAUTH-APP
+  # auth_endpoint: /api/auth
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  # Page meta (title) if you want it editable
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page (meta)"
+        file: "index.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string", default: "Veteran Roll Call | Home" }
+          - { label: "Library Key", name: "library_key", widget: "string", default: "home" }
+
+  # Veteran Resources section (cards)
+  - name: "resources"
+    label: "Veteran Resources"
+    files:
+      - name: "resources"
+        label: "Resources Section"
+        file: "_data/resources.yml"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - label: "Cards"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Icon (Font Awesome class)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "text", widget: "text" }
+              - { label: "Link URL", name: "href", widget: "string" }
+
+  # Important Websites grid (links)
+  - name: "links"
+    label: "Important Websites"
+    files:
+      - name: "links"
+        label: "Links Grid"
+        file: "_data/links.yml"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - label: "Links"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Icon (Font Awesome class)", name: "icon", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+
+  # Documents (PDFs etc.)
+  - name: "documents"
+    label: "Documents"
+    label_singular: "Document"
+    folder: "_documents"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "PDF File"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+        media_folder: "assets/docs"
+        public_folder: "/assets/docs"
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - label: "Show On Pages"
+        name: "pages"
+        widget: "select"
+        multiple: true
+        options: ["home","benefits","healthcare","housing"]   # add more as needed
+      - { label: "Date", name: "date", widget: "datetime", required: false }
