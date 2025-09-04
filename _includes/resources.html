@@ -1,6 +1,7 @@
 <section id="veteran-resources" class="flat-section">
   <div class="section-content">
     <div class="container">
+
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="section-title text-center">
@@ -11,30 +12,28 @@
             </p>
           </div>
         </div>
-        <div class="col-md-12">
-          <div class="circle-iconbox-group style1">
-            <div class="row">
-              {% for item in site.data.resources.items %}
-              <div class="col-md-4">
-                <div class="circle-iconbox with-radius">
-                  <div class="iconbox-header">
-                    <div class="icon-wrapper"><i class="{{ item.icon }}"></i></div>
-                    <div class="icon-title">
-                      <h4 style="font-weight:600;letter-spacing:.01em;">{{ item.title }}</h4>
-                    </div>
-                  </div>
-                  <div class="iconbox-content">
-                    <p style="font-weight:400;line-height:1.6;">{{ item.text }}</p>
-                  </div>
-                  <a class="simple-link" href="{{ item.href }}">Learn More <i class="fa fa-long-arrow-right"></i></a>
-                </div>
+      </div>
+
+      <!-- One single .row; let columns wrap naturally -->
+      <div class="row">
+        {% for item in site.data.resources.items %}
+        <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+          <div class="circle-iconbox with-radius" style="height:100%;">
+            <div class="iconbox-header">
+              <div class="icon-wrapper"><i class="{{ item.icon }}"></i></div>
+              <div class="icon-title">
+                <h4 style="font-weight:600;letter-spacing:.01em;">{{ item.title }}</h4>
               </div>
-              {% if forloop.index % 3 == 0 %}</div><div class="row">{% endif %}
-              {% endfor %}
             </div>
+            <div class="iconbox-content">
+              <p style="font-weight:400;line-height:1.6;">{{ item.text }}</p>
+            </div>
+            <a class="simple-link" href="{{ item.href }}">Learn More <i class="fa fa-long-arrow-right"></i></a>
           </div>
         </div>
-      </div><!-- End Row -->
-    </div><!-- End Container -->
-  </div><!-- End Section Content -->
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
 </section>
