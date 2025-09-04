@@ -145,3 +145,19 @@
         margin-bottom: 15px;
     }
 }
+
+/* Ensure rows wrap and columns stretch nicely */
+#veteran-resources .row,
+#important-websites .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#veteran-resources .row > [class*="col-"],
+#important-websites .row > [class*="col-"] {
+  display: flex;
+}
+#veteran-resources .circle-iconbox.with-radius,
+#important-websites .square-link-button {
+  width: 100%;
+}
