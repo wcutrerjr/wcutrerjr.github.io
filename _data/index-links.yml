@@ -1,0 +1,15 @@
+title: "Important Websites"
+subtitle: "Quick Access to Essential Veteran Resources"
+items:
+  - { icon: "fa fa-university",     label: "Veterans Administration",  href: "#" }
+  - { icon: "fa fa-heartbeat",      label: "VA Health Services",       href: "#" }
+  - { icon: "fa fa-phone",          label: "Veterans Crisis Line",     href: "#" }
+  - { icon: "fa fa-file-text",      label: "File for VA Disability",   href: "#" }
+  - { icon: "fa fa-home",           label: "VA Home Loans",            href: "#" }
+  - { icon: "fa fa-tags",           label: "Veteran Discounts",        href: "#" }
+  - { icon: "fa fa-plane",          label: "Travel Discounts",         href: "#" }
+  - { icon: "fa fa-calendar",       label: "Outreach & Events",        href: "#" }
+  - { icon: "fa fa-shopping-cart",  label: "Exchange Stores",          href: "#" }
+  - { icon: "fa fa-youtube-play",   label: "VA YouTube Channel",       href: "#" }
+  - { icon: "fa fa-globe",          label: "Military.com",             href: "#" }
+  - { icon: "fa fa-hotel",          label: "AFRC Resorts",             href: "#" }
