@@ -1,0 +1,147 @@
+/**
+ * Custom fixes for the website layout
+ */
+
+/* Link grid styling */
+.info-link-grid {
+    margin: 30px 0;
+}
+
+.info-link-button {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    height: 100px;
+}
+
+.info-link-button:hover {
+    background-color: #0556dd;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.info-link-button i {
+    font-size: 32px;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    width: 40px;
+    text-align: center;
+}
+
+.info-link-button:hover i {
+    color: #fff;
+}
+
+.info-link-button span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+/* Square link grid */
+.square-link-grid {
+    margin: 30px 0;
+}
+
+.square-link-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    height: 120px;
+}
+
+.square-link-button:hover {
+    background-color: #0556dd;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.square-link-button i {
+    font-size: 32px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.square-link-button:hover i {
+    color: #fff;
+}
+
+.square-link-button span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Circle iconbox styling */
+.circle-iconbox {
+    margin-bottom: 30px;
+    padding: 20px 15px;
+    transition: all 0.3s ease;
+}
+
+.circle-iconbox:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.circle-iconbox .icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.circle-iconbox .icon-wrapper i {
+    font-size: 48px;
+    color: #0556dd;
+}
+
+.circle-iconbox .icon-title h4 {
+    margin-bottom: 15px;
+}
+
+.circle-iconbox .iconbox-content {
+    margin-bottom: 15px;
+}
+
+.circle-iconbox .simple-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0556dd;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.circle-iconbox .simple-link:hover {
+    color: #043b99;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .circle-iconbox {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .circle-iconbox-group .row > [class*="col-"] {
+        margin-bottom: 15px;
+    }
+}
