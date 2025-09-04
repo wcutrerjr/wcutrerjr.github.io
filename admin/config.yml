@@ -71,7 +71,7 @@ collections:
         name: "file"
         widget: "file"
         allow_multiple: false
-        media_folder: "assets/docs"
+        media_folder: "assets/docs"   # upload here
         public_folder: "/assets/docs"
       - { label: "Description", name: "description", widget: "text", required: false }
       - { label: "Category", name: "category", widget: "string", required: false }
@@ -84,5 +84,6 @@ collections:
         name: "pages"
         widget: "select"
         multiple: true
-        options: ["home","benefits","healthcare","housing"]   # add more as needed
+        options: ["home","benefits","healthcare","housing"]  # add more keys as you create pages
       - { label: "Date", name: "date", widget: "datetime", required: false }
+
