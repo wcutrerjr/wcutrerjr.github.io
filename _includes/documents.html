@@ -1,6 +1,27 @@
+{% comment %}
+Renders a Library section (list of PDFs) for the current page.
+Auto-hides the entire section if there are no documents for this page.
+
+USAGE in a page (e.g., index.md):
+  {% include documents.html title="Library" intro="Forms and handbooks relevant to this page." %}
+
+How it decides which docs to show:
+- It looks for a "page key", in this order:
+  1) include.page_key (if you pass page_key="something" in the include)
+  2) page.library_key (front matter on the page)
+  3) page.slug (Jekyll sets this for some pages)
+  4) "home" (fallback)
+- It then filters site.documents for any doc whose "pages" front matter contains that key.
+{% endcomment %}
+
+{% assign target = include.page_key | default: page.library_key | default: page.slug | default: "home" %}
+{% assign docs = site.documents | where_exp: "d", "d.pages contains target" | sort: "date" | reverse %}
+
+{% if docs.size > 0 %}
 <section id="documents-library" class="flat-section">
   <div class="section-content">
     <div class="container">
+
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="section-title text-center">
@@ -8,30 +29,33 @@
               {{ include.title | default: "Library" }}
             </h2>
             {% if include.intro %}
-              <p class="section-description" style="font-weight:400;line-height:1.6;">{{ include.intro }}</p>
+              <p class="section-description" style="font-weight:400;line-height:1.6;">
+                {{ include.intro }}
+              </p>
             {% endif %}
           </div>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-md-12">
-          {% assign target = include.page_key | default: page.library_key | default: page.slug | default: "home" %}
-          {% assign docs = site.documents | where_exp: "d", "d.pages contains target" | sort: "date" | reverse %}
-          
-          {% if docs.size > 0 %}
-          <section id="documents-library" class="flat-section">
-            <div class="section-content">
-              <div class="container">
-                <h2>{{ include.title | default: "Library" }}</h2>
-                {% if include.intro %}<p>{{ include.intro }}</p>{% endif %}
-                <ul>
-                  {% for d in docs %}
-                    <li>
-                      <a href="{{ d.file }}">{{ d.title }}</a>
-                      {% if d.description %}<div>{{ d.description }}</div>{% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>
-          </section>
+          <ul class="list-unstyled">
+            {% for d in docs %}
+              <li style="margin-bottom:14px;">
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                <a href="{{ d.file }}" target="_blank" rel="noopener">
+                  {{ d.title }}
+                </a>
+                {% if d.description %}
+                  <div style="font-size:.95em;color:#555;">{{ d.description }}</div>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 {% endif %}
