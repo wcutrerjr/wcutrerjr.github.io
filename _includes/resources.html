@@ -2,6 +2,7 @@
   <div class="section-content">
     <div class="container">
 
+      <!-- Title row stays a normal Bootstrap row -->
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="section-title text-center">
@@ -14,18 +15,15 @@
         </div>
       </div>
 
-      <div class="row">
+      <!-- ONLY this row should be flexed -->
+      <div class="row resource-cards-row">
         {% for item in site.data.resources.items %}
           {% if item and item.title %}
           <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
             <div class="circle-iconbox with-radius" style="height:100%;">
               <div class="iconbox-header">
-                <div class="icon-wrapper">
-                  {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
-                </div>
-                <div class="icon-title">
-                  <h4 style="font-weight:600;letter-spacing:.01em;">{{ item.title }}</h4>
-                </div>
+                <div class="icon-wrapper">{% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}</div>
+                <div class="icon-title"><h4 style="font-weight:600;letter-spacing:.01em;">{{ item.title }}</h4></div>
               </div>
               <div class="iconbox-content">
                 {% if item.text %}<p style="font-weight:400;line-height:1.6;">{{ item.text }}</p>{% endif %}
