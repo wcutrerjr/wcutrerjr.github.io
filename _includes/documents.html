@@ -16,24 +16,22 @@
         <div class="col-md-12">
           {% assign target = include.page_key | default: page.library_key | default: page.slug | default: "home" %}
           {% assign docs = site.documents | where_exp: "d", "d.pages contains target" | sort: "date" | reverse %}
-
-          {% if docs.size == 0 %}
-            <p>No documents available yet.</p>
-          {% else %}
-            <ul class="list-unstyled">
-              {% for d in docs %}
-                <li style="margin-bottom:14px;">
-                  <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                  <a href="{{ d.file }}" target="_blank" rel="noopener">{{ d.title }}</a>
-                  {% if d.description %}
-                    <div style="font-size:.95em;color:#555;">{{ d.description }}</div>
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          
+          {% if docs.size > 0 %}
+          <section id="documents-library" class="flat-section">
+            <div class="section-content">
+              <div class="container">
+                <h2>{{ include.title | default: "Library" }}</h2>
+                {% if include.intro %}<p>{{ include.intro }}</p>{% endif %}
+                <ul>
+                  {% for d in docs %}
+                    <li>
+                      <a href="{{ d.file }}">{{ d.title }}</a>
+                      {% if d.description %}<div>{{ d.description }}</div>{% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </section>
+{% endif %}
