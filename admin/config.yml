@@ -84,6 +84,78 @@ collections:
         name: "pages"
         widget: "select"
         multiple: true
-        options: ["home","benefits","healthcare","housing"]  # add more keys as you create pages
-      - { label: "Date", name: "date", widget: "datetime", required: false }
-
+        - name: "documents"
+  label: "Documents"
+  label_singular: "Document"
+  folder: "_documents"
+  create: true
+  slug: "{{slug}}"
+  fields:
+    - { label: "Title", name: "title", widget: "string" }
+    - label: "PDF File"
+      name: "file"
+      widget: "file"
+      allow_multiple: false
+      media_folder: "assets/docs"
+      public_folder: "/assets/docs"
+    - { label: "Description", name: "description", widget: "text", required: false }
+    - { label: "Category", name: "category", widget: "string", required: false }
+    - label: "Tags"
+      name: "tags"
+      widget: "list"
+      required: false
+      field: { label: "Tag", name: "tag", widget: "string" }
+    - label: "Show On Pages"
+      name: "pages"
+      widget: "select"
+      multiple: true
+      options:
+        # Core
+        - home
+        - about
+        - contact
+        - news
+        - events
+        - faq
+        - guides
+        - checklists
+        # Benefits & claims
+        - benefits
+        - claims
+        - appeals
+        - va-forms
+        - health-forms
+        - records
+        - id-cards
+        # Health & wellness
+        - healthcare
+        - mental-health
+        - ptsd
+        - tbi
+        - addiction
+        - caregiver
+        - survivors
+        - burial
+        # Money, work, education
+        - financial-assistance
+        - careers
+        - education
+        - gi-bill
+        - voc-rehab
+        - small-business
+        - taxes
+        # Housing & stability
+        - housing
+        - homelessness
+        - transportation
+        # Special populations / programs
+        - women-veterans
+        - minority-veterans
+        - lgbtq-veterans
+        - service-dogs
+        # Access & perks
+        - discounts
+        - commissary-exchange
+        - travel
+        # add more keys as you create pages
+    - { label: "Date", name: "date", widget: "datetime", required: false }
