@@ -936,8 +936,8 @@ header .button {
 }
 
 .logo img {
-	max-height: 64px;
-	margin-top: 64px;
+	max-height: 96px;
+	margin-top: 96px;
 }
 
 .logo h3 {
@@ -3649,6 +3649,7 @@ footer {
 .copyrights-message a:hover {
 	color: #0556dd;
 }
+
 
 
 
