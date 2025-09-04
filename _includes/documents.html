@@ -1,0 +1,39 @@
+<section id="documents-library" class="flat-section">
+  <div class="section-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="section-title text-center">
+            <h2 style="font-weight:600;letter-spacing:.02em;">
+              {{ include.title | default: "Library" }}
+            </h2>
+            {% if include.intro %}
+              <p class="section-description" style="font-weight:400;line-height:1.6;">{{ include.intro }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          {% assign target = include.page_key | default: page.library_key | default: page.slug | default: "home" %}
+          {% assign docs = site.documents | where_exp: "d", "d.pages contains target" | sort: "date" | reverse %}
+
+          {% if docs.size == 0 %}
+            <p>No documents available yet.</p>
+          {% else %}
+            <ul class="list-unstyled">
+              {% for d in docs %}
+                <li style="margin-bottom:14px;">
+                  <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                  <a href="{{ d.file }}" target="_blank" rel="noopener">{{ d.title }}</a>
+                  {% if d.description %}
+                    <div style="font-size:.95em;color:#555;">{{ d.description }}</div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
