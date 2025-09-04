@@ -1,0 +1,7 @@
+title: Veteran Roll Call
+markdown: kramdown
+
+# Our content “types”
+collections:
+  documents:
+    output: true   # we don’t need individual pages for docs, but 'true' keeps options open
