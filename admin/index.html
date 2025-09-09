@@ -3,7 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>window.CMS_MANUAL_INIT = true;</script> <!-- init after DOM is ready -->
+    <script defer src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div id="cms-root"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.CMS && typeof CMS.init === "function") CMS.init(); // start CMS
+      });
+    </script>
+  </body>
 </html>
