@@ -4,15 +4,11 @@ backend:
   branch: main
   base_url: https://auth.veteranrollcall.org
   auth_endpoint: /auth
-  # When you set up a GitHub OAuth bridge, uncomment:
-  # base_url: https://YOUR-OAUTH-APP
-  # auth_endpoint: /api/auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  # Page meta (title) if you want it editable
   - name: "pages"
     label: "Pages"
     files:
@@ -23,7 +19,6 @@ collections:
           - { label: "Page Title", name: "title", widget: "string", default: "Veteran Roll Call | Home" }
           - { label: "Library Key", name: "library_key", widget: "string", default: "home" }
 
-  # Veteran Resources section (cards)
   - name: "resources"
     label: "Veteran Resources"
     files:
@@ -42,7 +37,6 @@ collections:
               - { label: "Description", name: "text", widget: "text" }
               - { label: "Link URL", name: "href", widget: "string" }
 
-  # Important Websites grid (links)
   - name: "links"
     label: "Important Websites"
     files:
@@ -60,78 +54,77 @@ collections:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "URL", name: "href", widget: "string" }
 
-  # Documents (PDFs etc.)
   - name: "documents"
-  label: "Documents"
-  label_singular: "Document"
-  folder: "_documents"
-  create: true
-  slug: "{{slug}}"
-  fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - label: "PDF File"
-      name: "file"
-      widget: "file"
-      allow_multiple: false
-      media_folder: "assets/docs"
-      public_folder: "/assets/docs"
-    - { label: "Description", name: "description", widget: "text", required: false }
-    - { label: "Category", name: "category", widget: "string", required: false }
-    - label: "Tags"
-      name: "tags"
-      widget: "list"
-      required: false
-      field: { label: "Tag", name: "tag", widget: "string" }
-    - label: "Show On Pages"
-      name: "pages"
-      widget: "select"
-      multiple: true
-      options:
-        # Core
-        - home
-        - about
-        - contact
-        - news
-        - events
-        - faq
-        - guides
-        - checklists
-        # Benefits & claims
-        - benefits
-        - claims
-        - appeals
-        - va-forms
-        - health-forms
-        - records
-        - id-cards
-        # Health & wellness
-        - healthcare
-        - mental-health
-        - ptsd
-        - tbi
-        - addiction
-        - caregiver
-        - survivors
-        - burial
-        # Money, work, education
-        - financial-assistance
-        - careers
-        - education
-        - gi-bill
-        - voc-rehab
-        - small-business
-        - taxes
-        # Housing & stability
-        - housing
-        - homelessness
-        - transportation
-        # Special populations / programs
-        - women-veterans
-        - minority-veterans
-        - lgbtq-veterans
-        - service-dogs
-        # Access & perks
-        - discounts
-        - commissary-exchange
-        - travel
-    - { label: "Date", name: "date", widget: "datetime", required: false }
+    label: "Documents"
+    label_singular: "Document"
+    folder: "_documents"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "PDF File"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+        media_folder: "assets/docs"
+        public_folder: "/assets/docs"
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - label: "Show On Pages"
+        name: "pages"
+        widget: "select"
+        multiple: true
+        options:
+          # Core
+          - home
+          - about
+          - contact
+          - news
+          - events
+          - faq
+          - guides
+          - checklists
+          # Benefits & claims
+          - benefits
+          - claims
+          - appeals
+          - va-forms
+          - health-forms
+          - records
+          - id-cards
+          # Health & wellness
+          - healthcare
+          - mental-health
+          - ptsd
+          - tbi
+          - addiction
+          - caregiver
+          - survivors
+          - burial
+          # Money, work, education
+          - financial-assistance
+          - careers
+          - education
+          - gi-bill
+          - voc-rehab
+          - small-business
+          - taxes
+          # Housing & stability
+          - housing
+          - homelessness
+          - transportation
+          # Special populations / programs
+          - women-veterans
+          - minority-veterans
+          - lgbtq-veterans
+          - service-dogs
+          # Access & perks
+          - discounts
+          - commissary-exchange
+          - travel
+      - { label: "Date", name: "date", widget: "datetime", required: false }
