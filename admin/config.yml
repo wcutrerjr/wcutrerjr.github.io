@@ -62,31 +62,6 @@ collections:
 
   # Documents (PDFs etc.)
   - name: "documents"
-    label: "Documents"
-    label_singular: "Document"
-    folder: "_documents"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - label: "PDF File"
-        name: "file"
-        widget: "file"
-        allow_multiple: false
-        media_folder: "assets/docs"   # upload here
-        public_folder: "/assets/docs"
-      - { label: "Description", name: "description", widget: "text", required: false }
-      - { label: "Category", name: "category", widget: "string", required: false }
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        required: false
-        field: { label: "Tag", name: "tag", widget: "string" }
-      - label: "Show On Pages"
-        name: "pages"
-        widget: "select"
-        multiple: true
-        - name: "documents"
   label: "Documents"
   label_singular: "Document"
   folder: "_documents"
@@ -159,5 +134,4 @@ collections:
         - discounts
         - commissary-exchange
         - travel
-        # add more keys as you create pages
     - { label: "Date", name: "date", widget: "datetime", required: false }
