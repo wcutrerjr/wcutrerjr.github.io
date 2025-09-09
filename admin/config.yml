@@ -3,7 +3,7 @@ backend:
   repo: wcutrerjr/wcutrerjr.github.io
   branch: main
   base_url: https://auth.veteranrollcall.org
-  auth_endpoint: /auth
+  auth_endpoint: /api/auth
   # When you set up a GitHub OAuth bridge, uncomment:
   # base_url: https://YOUR-OAUTH-APP
   # auth_endpoint: /api/auth
