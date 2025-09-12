@@ -3,18 +3,14 @@
 <html lang="en-US">
 <head>
   <!-- Title / Meta -->
-  <title>{{ page.title | default: site.data.site.siteName | append: " | Home" }}</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="author" content="{{ page.seo.author | default: '' }}">
-  <meta name="description" content="{{ page.seo.description | default: '' }}">
-  <meta name="keywords" content="{{ page.seo.keywords | default: '' }}">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="{{ site.data.site.favicon.icon }}">
-  <link rel="apple-touch-icon" href="{{ site.data.site.favicon.apple }}">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ site.data.site.favicon.apple72 }}">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ site.data.site.favicon.apple114 }}">
+    <title>{{ page.title | default: site.data.site.siteName }}</title>
+    <meta name="author" content="{{ page.seo.author | default: site.data.site.seo.author }}">
+    <meta name="description" content="{{ page.seo.description | default: site.data.site.seo.description }}">
+    <meta name="keywords" content="{{ page.seo.keywords | default: site.data.site.seo.keywords }}">
+    <link rel="shortcut icon" href="{{ site.data.site.favicon.icon }}">
+    <link rel="apple-touch-icon" href="{{ site.data.site.favicon.apple }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.data.site.favicon.apple72 }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.data.site.favicon.apple114 }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
