@@ -184,33 +184,51 @@
             </a>
             <!-- Main Nav -->
             <div class="rm-menu"></div>
-            <nav id="main-nav">
-              <ul id="main-menu" class="main-menu sf-menu">
-                {% for item in site.data.site.menu %}
-                  <li>
-                    <a href="{{ item.url }}">{{ item.label }}</a>
-                    {% if item.children %}
-                      <ul class="dropdown-menu">
-                        {% for c in item.children %}
-                          {% if c.children %}
-                            <li>
-                              <a href="{{ c.url }}"><i class="fa fa-bars"></i>{{ c.label }}</a>
-                              <ul class="dropdown-menu">
-                                {% for g in c.children %}
-                                  <li><a href="{{ g.url }}">{{ g.label }}</a></li>
-                                {% endfor %}
-                              </ul>
-                            </li>
-                          {% else %}
-                            <li><a href="{{ c.url }}">{{ c.label }}</a></li>
-                          {% endif %}
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
-            </nav>
+              <nav id="main-nav" role="navigation" aria-label="Primary">
+                <ul id="main-menu" class="main-menu sf-menu">
+                  {% for item in site.data.site.menu %}
+                    {% assign href = item.url | default: "/" | relative_url %}
+                    {% assign isActive = page.url == item.url or page.url == href or page.url contains item.url %}
+                    <li class="{% if item.children %}has-children {% endif %}{% if isActive %}active{% endif %}">
+                      <a href="{{ href }}"
+                         {% if item.children %}aria-haspopup="true" aria-expanded="false"{% endif %}>
+                        {{ item.label }}
+                        {% if item.children %}<i class="fa fa-caret-down" aria-hidden="true"></i>{% endif %}
+                      </a>
+              
+                      {% if item.children %}
+                        <ul class="dropdown-menu" role="menu">
+                          {% for c in item.children %}
+                            {% assign chref = c.url | default: "/" | relative_url %}
+                            {% assign cActive = page.url == c.url or page.url == chref or page.url contains c.url %}
+                            {% if c.children %}
+                              <li class="has-children {% if cActive %}active{% endif %}">
+                                <a href="{{ chref }}" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fa fa-bars" aria-hidden="true"></i>{{ c.label }}
+                                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                  {% for g in c.children %}
+                                    {% assign ghref = g.url | default: "/" | relative_url %}
+                                    {% assign gActive = page.url == g.url or page.url == ghref %}
+                                    <li class="{% if gActive %}active{% endif %}">
+                                      <a href="{{ ghref }}">{{ g.label }}</a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </li>
+                            {% else %}
+                              <li class="{% if cActive %}active{% endif %}">
+                                <a href="{{ chref }}">{{ c.label }}</a>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
             <!-- End Main Nav -->
           </div>
         </div>
