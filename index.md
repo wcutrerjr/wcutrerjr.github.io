@@ -8,7 +8,7 @@ seo:
 hero:
   backgroundImage: images/headers/image123.jpg     # used in data-parallax
   title: Veteran Roll Call
-  subtitle: Connecting Veterans with Resources: Explore useful information, programs, and services available to veterans and their families.
+  subtitle: "Connecting Veterans with Resources: Explore useful information, programs, and services available to veterans and their families."
   honorGuardImage: images/general-elements/honor-guard.webp
 cta:
   enabled: true
