@@ -1,0 +1,60 @@
+siteName: Veteran Roll Call
+tagline: Connecting Veterans with Resources
+logoSmall: images/general-elements/veteranrollcall_sm.png
+logoFooter: images/general-elements/veteranrollcall_md.png
+favicon:
+  icon: images/general-elements/favicon/favicon.png
+  apple: images/general-elements/favicon/apple-touch-icon.png
+  apple72: images/general-elements/favicon/apple-touch-icon-72x72.png
+  apple114: images/general-elements/favicon/apple-touch-icon-114x114.png
+
+socialLinks:
+  - icon: twitter
+    url: "#"
+  - icon: facebook
+    url: "#"
+  - icon: youtube
+    url: "#"
+  - icon: instagram
+    url: "#"
+
+menu:
+  - label: Home
+    url: "#"
+    children:
+      - label: Menu Item 1
+        url: "#"
+      - label: Menu Item 2
+        url: "#"
+  - label: About Us
+    url: "#"
+  - label: Programs
+    url: "#"
+  - label: Pages
+    url: "#"
+    children:
+      - label: News
+        url: "#"
+      - label: News Article
+        url: "#"
+      - label: Features
+        url: "#"
+        children:
+          - label: Feature 1
+            url: "#"
+          - label: Feature 2
+            url: "#"
+          - label: Feature 3
+            url: "#"
+          - label: Feature 4
+            url: "#"
+          - label: Feature 5
+            url: "#"
+          - label: Feature 6
+            url: "#"
+  - label: Get Involved
+    url: "#"
+  - label: Donate
+    url: "#"
+  - label: Contact
+    url: "#"
