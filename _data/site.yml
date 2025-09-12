@@ -2,59 +2,51 @@ siteName: Veteran Roll Call
 tagline: Connecting Veterans with Resources
 logoSmall: images/general-elements/veteranrollcall_sm.png
 logoFooter: images/general-elements/veteranrollcall_md.png
+
 favicon:
   icon: images/general-elements/favicon/favicon.png
   apple: images/general-elements/favicon/apple-touch-icon.png
   apple72: images/general-elements/favicon/apple-touch-icon-72x72.png
   apple114: images/general-elements/favicon/apple-touch-icon-114x114.png
 
+seo:
+  author: Veteran Roll Call
+  description: Veteran Roll Call is a trusted resource for veterans, service members, and their families—find programs, VA benefits guidance, and community support.
+  keywords: veterans, veteran resources, veteran programs, military families, veteran support, VA benefits, veteran community, veteran services, veteran assistance, veteran administration assistance, VA assistance, veteran outreach
+
 socialLinks:
   - icon: twitter
-    url: "#"
+    label: Twitter
+    url: https://twitter.com/veteranrollcall
   - icon: facebook
-    url: "#"
+    label: Facebook
+    url: https://facebook.com/veteranrollcall
   - icon: youtube
-    url: "#"
+    label: YouTube
+    url: https://youtube.com/@veteranrollcall
   - icon: instagram
-    url: "#"
+    label: Instagram
+    url: https://instagram.com/veteranrollcall
 
 menu:
   - label: Home
-    url: "#"
-    children:
-      - label: Menu Item 1
-        url: "#"
-      - label: Menu Item 2
-        url: "#"
+    url: /
   - label: About Us
-    url: "#"
+    url: /about/
   - label: Programs
-    url: "#"
-  - label: Pages
-    url: "#"
+    url: /programs/
+  - label: Resources
+    url: /resources/
+  - label: News
+    url: /news/
     children:
-      - label: News
-        url: "#"
-      - label: News Article
-        url: "#"
-      - label: Features
-        url: "#"
-        children:
-          - label: Feature 1
-            url: "#"
-          - label: Feature 2
-            url: "#"
-          - label: Feature 3
-            url: "#"
-          - label: Feature 4
-            url: "#"
-          - label: Feature 5
-            url: "#"
-          - label: Feature 6
-            url: "#"
+      - label: Articles
+        url: /news/articles/
+      - label: Updates
+        url: /news/updates/
   - label: Get Involved
-    url: "#"
+    url: /get-involved/
   - label: Donate
-    url: "#"
+    url: /donate/
   - label: Contact
-    url: "#"
+    url: /contact/
