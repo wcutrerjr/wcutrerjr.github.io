@@ -16,16 +16,12 @@ seo:
 
 socialLinks:
   - icon: twitter
-    label: Twitter
     url: https://twitter.com/veteranrollcall
   - icon: facebook
-    label: Facebook
     url: https://facebook.com/veteranrollcall
   - icon: youtube
-    label: YouTube
     url: https://youtube.com/@veteranrollcall
   - icon: instagram
-    label: Instagram
     url: https://instagram.com/veteranrollcall
 
 menu:
