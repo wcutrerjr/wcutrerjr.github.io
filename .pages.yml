@@ -1,0 +1,131 @@
+media:
+  - name: siteImages
+    label: Site Images
+    input: images
+    output: /images
+    categories: [ image, document ]
+content:
+  # Home page front matter
+  - name: home
+    label: Home Page
+    type: file
+    path: "index.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - { name: author, label: Author, type: string, required: false }
+          - { name: description, label: Description, type: text, required: false }
+          - { name: keywords, label: Keywords, type: string, required: false }
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - { name: backgroundImage, label: Background Image, type: image, media: siteImages }
+          - { name: title, label: Headline, type: string }
+          - { name: subtitle, label: Subheadline, type: text }
+          - { name: honorGuardImage, label: Side Image, type: image, media: siteImages }
+      - name: cta
+        label: Crisis CTA
+        type: object
+        fields:
+          - { name: enabled, label: Enabled, type: boolean, default: true }
+          - { name: headingHtml, label: Heading (HTML OK), type: text }
+          - { name: bodyHtml, label: Body (HTML OK), type: text }
+      - name: newsletter
+        label: Newsletter
+        type: object
+        fields:
+          - { name: enabled, label: Enabled, type: boolean, default: true }
+          - { name: headline, label: Headline, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: ctaHeadline, label: CTA Headline, type: string }
+          - { name: buttonText, label: Button Text, type: string, default: "Sign Up Now" }
+          - { name: disclaimer, label: Disclaimer (HTML OK), type: text }
+          - { name: placeholder, label: Input Placeholder, type: string, default: "your-email@example.com" }
+
+  # Global site settings in _data
+  - name: siteData
+    label: Site Settings
+    type: file
+    path: "_data/site.yml"
+    fields:
+      - { name: siteName, label: Site Name, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - name: logoSmall
+        label: Header Logo
+        type: image
+        media: siteImages
+      - name: logoFooter
+        label: Footer Logo
+        type: image
+        media: siteImages
+      - name: favicon
+        label: Favicons
+        type: object
+        fields:
+          - { name: icon, label: Favicon, type: image, media: siteImages }
+          - { name: apple, label: Apple Touch, type: image, media: siteImages }
+          - { name: apple72, label: Apple 72x72, type: image, media: siteImages }
+          - { name: apple114, label: Apple 114x114, type: image, media: siteImages }
+      - name: socialLinks
+        label: Social Links
+        type: list
+        fields:
+          - { name: icon, label: Icon (font-awesome name), type: string }
+          - { name: url, label: URL, type: string }
+      - name: menu
+        label: Main Menu
+        type: list
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: url, label: URL, type: string }
+          - name: children
+            label: Children
+            type: list
+            required: false
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: url, label: URL, type: string }
+              - name: children
+                label: Grandchildren
+                type: list
+                required: false
+                fields:
+                  - { name: label, label: Label, type: string }
+                  - { name: url, label: URL, type: string }
+
+  # Resources & Links data your includes use
+  - name: resourcesData
+    label: Resources Data
+    type: file
+    path: "_data/resources.yml"
+    fields:
+      - { name: title, label: Section Title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - name: items
+        label: Resource Cards
+        type: list
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: url, label: URL, type: string }
+          - { name: icon, label: Icon Class, type: string }
+
+  - name: linksGridData
+    label: Important Links Data
+    type: file
+    path: "_data/links.yml"
+    fields:
+      - name: links
+        label: Links
+        type: list
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: url, label: URL, type: string }
+          - { name: blurb, label: Blurb, type: text }
