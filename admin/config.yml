@@ -2,8 +2,8 @@ backend:
   name: github
   repo: wcutrerjr/wcutrerjr.github.io
   branch: main
-  base_url: https://auth.veteranrollcall.org
-  # auth_endpoint: /auth
+  base_url: https://veteranrollcall.org
+  auth_endpoint: /auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
