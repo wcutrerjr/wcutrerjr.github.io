@@ -3,14 +3,18 @@
 <html lang="en-US">
 <head>
   <!-- Title / Meta -->
-    <title>{{ page.title | default: site.data.site.siteName | append: " | Home" }}</title>
-    <meta name="author" content="{{ page.seo.author | default: '' }}">
-    <meta name="description" content="{{ page.seo.description | default: '' }}">
-    <meta name="keywords" content="{{ page.seo.keywords | default: '' }}">
-    <link rel="shortcut icon" href="{{ site.data.site.favicon.icon }}">
-    <link rel="apple-touch-icon" href="{{ site.data.site.favicon.apple }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.data.site.favicon.apple72 }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.data.site.favicon.apple114 }}">
+  <title>{{ page.title | default: site.data.site.siteName | append: " | Home" }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="{{ page.seo.author | default: '' }}">
+  <meta name="description" content="{{ page.seo.description | default: '' }}">
+  <meta name="keywords" content="{{ page.seo.keywords | default: '' }}">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ site.data.site.favicon.icon }}">
+  <link rel="apple-touch-icon" href="{{ site.data.site.favicon.apple }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ site.data.site.favicon.apple72 }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ site.data.site.favicon.apple114 }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -51,7 +55,8 @@
       <!-- End Header Top Content -->
 
       <!-- Header Featured Content Outer -->
-      <div class="header-parallax" data-stellar-background-ratio="0.5" data-parallax-background-image="{{ page.hero.backgroundImage | default: 'image123.jpg' }}">
+      <section id="header-featured-content-outer">
+        <div class="header-parallax" data-stellar-background-ratio="0.5" data-parallax-background-image="{{ page.hero.backgroundImage | default: 'image123.jpg' }}">
           <div class="pattern-overlay" data-pattern-overlay-darkness-opacity="0.0" data-pattern-overlay-background-image="none"></div>
           <div class="header-colored-background gradient-BG1"></div>
 
@@ -63,8 +68,10 @@
                   <!-- Header Center Box -->
                   <div class="header-center-box">
                     <div class="header-featured-title style1">
-                      <br /><br />
-                      <h1 ...>{{ page.hero.title | default: site.data.site.siteName }}</h1>
+                      <br><br>
+                      <h1 style="letter-spacing:.02em;font-weight:600;">
+                        {{ page.hero.title | default: site.data.site.siteName }}
+                      </h1>
                       <h4 class="subheader" style="font-weight:400;line-height:1.6;letter-spacing:.01em;">
                         {{ page.hero.subtitle | default: site.data.site.tagline }}
                       </h4>
@@ -130,7 +137,7 @@
               }
               .vrcCta > *{position:relative;z-index:1;}
             </style>
-          
+
             <div class="container">
               <div class="row">
                 <div class="col-md-12">
@@ -147,9 +154,9 @@
                   </p>
                 </div>
               </div>
+            </div>
           </div>
-        </div>
-        <!-- End Mental Health Services Notification Bar -->
+          <!-- End Mental Health Services Notification Bar -->
 
           <div class="col-sm-12 text-center">
             <!-- Anchor Menu -->
@@ -175,44 +182,37 @@
           <div class="col-md-12">
             <!-- Logo -->
             <a class="logo text-logo" href="#">
-              <img src="images/general-elements/logo/logo1.png" alt="">
-              <h3><strong>Veteran Roll Call</strong></h3>
-              <span>Connecting Veterans with Resources</span>
+              <img src="{{ site.data.site.logoSmall }}" alt="">
+              <h3><strong>{{ site.data.site.siteName }}</strong></h3>
+              <span>{{ site.data.site.tagline }}</span>
             </a>
             <!-- Main Nav -->
             <div class="rm-menu"></div>
             <nav id="main-nav">
               <ul id="main-menu" class="main-menu sf-menu">
-                <li>
-                  <a href="#">Home</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Menu Item 1</a></li>
-                    <li><a href="#">Menu Item 2</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Programs</a></li>
-                <li>
-                  <a href="#">Pages</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">News Article</a></li>
-                    <li>
-                      <a href="#"><i class="fa fa-bars"></i>Features</a>
+                {% for item in site.data.site.menu %}
+                  <li>
+                    <a href="{{ item.url }}">{{ item.label }}</a>
+                    {% if item.children %}
                       <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-sliders"></i>Feature 1</a></li>
-                        <li><a href="#"><i class="fa fa-info-circle"></i>Feature 2</a></li>
-                        <li><a href="#"><i class="fa fa-copy"></i>Feature 3</a></li>
-                        <li><a href="#"><i class="fa fa-space-shuttle"></i>Feature 4</a></li>
-                        <li><a href="#"><i class="fa fa-inbox"></i>Feature 5</a></li>
-                        <li><a href="#"><i class="fa fa-share-alt"></i>Feature 6</a></li>
+                        {% for c in item.children %}
+                          {% if c.children %}
+                            <li>
+                              <a href="{{ c.url }}"><i class="fa fa-bars"></i>{{ c.label }}</a>
+                              <ul class="dropdown-menu">
+                                {% for g in c.children %}
+                                  <li><a href="{{ g.url }}">{{ g.label }}</a></li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          {% else %}
+                            <li><a href="{{ c.url }}">{{ c.label }}</a></li>
+                          {% endif %}
+                        {% endfor %}
                       </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#">Get Involved</a></li>
-                <li><a href="#">Donate</a></li>
-                <li><a href="#">Contact</a></li>
+                    {% endif %}
+                  </li>
+                {% endfor %}
               </ul>
             </nav>
             <!-- End Main Nav -->
@@ -302,19 +302,15 @@
           <div class="col-sm-12">
             <!-- Footer Social Icons -->
             <ul class="social-icons large rounded grey hover-colorful-BG">
-              <li><a class="social-icon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="social-icon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="social-icon-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-              <li><a class="social-icon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li><a class="social-icon-vimeo" href="#"><i class="fa fa-vimeo"></i></a></li>
-              <li><a class="social-icon-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
-              <li><a class="social-icon-pinterest-p" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+              {% for s in site.data.site.socialLinks %}
+                <li><a class="social-icon-{{ s.icon }}" href="{{ s.url }}"><i class="fa fa-{{ s.icon }}"></i></a></li>
+              {% endfor %}
             </ul>
           </div>
 
           <div class="col-sm-12">
             <a class="footer-logo" href="#">
-              <img src="images/general-elements/veteranrollcall_md.png" alt="">
+              <img src="{{ site.data.site.logoFooter }}" alt="">
             </a>
           </div>
 
@@ -324,13 +320,14 @@
               <a href="#top">Back to Top</a>
             </ul>
             <div class="copyrights-message">
-              <strong><a href="https://www.veteranrollcall.org">Veteran Roll Call</strong></a> © <strong><script>document.write(new Date().getFullYear())</script></strong>
+              <strong><a href="https://www.veteranrollcall.org">Veteran Roll Call</a></strong> ©
+              <strong><script>document.write(new Date().getFullYear())</script></strong>
               <!-- Begin Design credit -->
               <br><br><br>
               <span style="font-size:0.9em;font-weight:600;">
-                design by 
+                design by
                 <a href="https://www.exteran.com" style="color:#0066cc;text-decoration:none;font-weight:600;"
-                   onmouseover="this.style.textDecoration='underline'" 
+                   onmouseover="this.style.textDecoration='underline'"
                    onmouseout="this.style.textDecoration='none'">
                   exteran studios
                 </a>
