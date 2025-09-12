@@ -3,18 +3,14 @@
 <html lang="en-US">
 <head>
   <!-- Title / Meta -->
-  <title>{{ page.title | default: "Veteran Roll Call | Home" }}</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, intial-scale=1, max-scale=1">
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/general-elements/favicon/favicon.png">
-  <link rel="apple-touch-icon" href="images/general-elements/favicon/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/general-elements/favicon/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/general-elements/favicon/apple-touch-icon-114x114.png">
+    <title>{{ page.title | default: site.data.site.siteName | append: " | Home" }}</title>
+    <meta name="author" content="{{ page.seo.author | default: '' }}">
+    <meta name="description" content="{{ page.seo.description | default: '' }}">
+    <meta name="keywords" content="{{ page.seo.keywords | default: '' }}">
+    <link rel="shortcut icon" href="{{ site.data.site.favicon.icon }}">
+    <link rel="apple-touch-icon" href="{{ site.data.site.favicon.apple }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.data.site.favicon.apple72 }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.data.site.favicon.apple114 }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -34,19 +30,18 @@
             <div class="col-sm-4">
               <!-- Logo -->
               <a class="logo image-logo" href="#">
-                <img src="images/general-elements/veteranrollcall_sm.png" alt="">
-                <h3><strong>Veteran Roll Call</strong></h3>
-                <span>Connecting Veterans with Resources</span>
+                <img src="{{ site.data.site.logoSmall }}" alt="">
+                <h3><strong>{{ site.data.site.siteName }}</strong></h3>
+                <span>{{ site.data.site.tagline }}</span>
               </a>
               <!-- End Logo -->
             </div>
             <div class="col-sm-8">
               <!-- Header Social Icons -->
               <ul class="social-icons x-small rounded grey hover-dark">
-                <li><a class="social-icon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="social-icon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="social-icon-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
-                <li><a class="social-icon-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                {% for s in site.data.site.socialLinks %}
+                  <li><a class="social-icon-{{ s.icon }}" href="{{ s.url }}"><i class="fa fa-{{ s.icon }}"></i></a></li>
+                {% endfor %}
               </ul>
               <!-- End Header Social Icons -->
             </div>
@@ -56,8 +51,7 @@
       <!-- End Header Top Content -->
 
       <!-- Header Featured Content Outer -->
-      <section id="header-featured-content-outer">
-        <div class="header-parallax" data-stellar-background-ratio="0.5" data-parallax-background-image="image123.jpg">
+      <div class="header-parallax" data-stellar-background-ratio="0.5" data-parallax-background-image="{{ page.hero.backgroundImage | default: 'image123.jpg' }}">
           <div class="pattern-overlay" data-pattern-overlay-darkness-opacity="0.0" data-pattern-overlay-background-image="none"></div>
           <div class="header-colored-background gradient-BG1"></div>
 
@@ -70,9 +64,9 @@
                   <div class="header-center-box">
                     <div class="header-featured-title style1">
                       <br /><br />
-                      <h1 style="letter-spacing:.02em;font-weight:600;">Veteran Roll Call</h1>
+                      <h1 ...>{{ page.hero.title | default: site.data.site.siteName }}</h1>
                       <h4 class="subheader" style="font-weight:400;line-height:1.6;letter-spacing:.01em;">
-                        Connecting Veterans with Resources: Explore useful information, programs, and services available to veterans and their families.
+                        {{ page.hero.subtitle | default: site.data.site.tagline }}
                       </h4>
                     </div>
                     <!-- Scroll Down Indicator -->
@@ -90,7 +84,7 @@
                 <div class="col-md-4">
                   <div class="header-center-box text-center" style="padding-top:20px;">
                     <div style="padding:0;">
-                      <img src="images/general-elements/honor-guard.webp" alt="Honor Guard" style="max-width:140%;height:auto;margin-left:5%;position:relative;z-index:-1;">
+                      <img src="{{ page.hero.honorGuardImage | default: 'images/general-elements/honor-guard.webp' }}" alt="Honor Guard" style="max-width:140%;height:auto;margin-left:5%;position:relative;z-index:-1;">
                     </div>
                   </div>
                 </div>
